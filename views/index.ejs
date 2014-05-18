@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="en" ng-app>
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Introduction to MEAN.IO</title>
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<script src="lib/js/jquery-2.0.3.js"></script>
+		<script src="lib/js/angular.js"></script>
+		<script>
+		function AppCtrl($scope){
+			$scope.greeting = '{{ greeting }}'
+			$scope.yourNameStr = '{{ yourName }}'
+		}
+	    </script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body ng-controller="AppCtrl">
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h2>Bootstrapping + MEAN Stack Intro</h2>
+					<h3>Presented for </h3>
+					<h1><img src="img/logo.png" title="NEAN Singapore meetup" style="border:0; background-color: transparent; box-shadow: none;" onClick="window.location.href='http://www.meetup.com/NEAN-Singapore-Meetup/'" /><img src="img/gdgsingapore.png" title="GDG Singapore" style="border:0; background-color: transparent; box-shadow: none;" onClick="window.location.href='http://www.gdg-sg.org/'" />  </h1>
+					<p>
+						<small>Created by <a href="http://blog.gautamanand.in/">Gautam Anand</a> / <a href="https://twitter.com/gautam_anand25">@gautam_anand25</a></small>
+					</p>
+
+					<p> 
+						<small> made with love using Angular + Express + RevealJS</small>
+					</p>
+				</section>
+
+				<section>
+					
+					<h2><a href="http://nean1.gautamanand.in">http://nean1.gautamanand.in</a></h2>
+					</br> </br>
+					
+					<h2><a href="https://github.com/ga1989/AngularPresentation-NEANmeetup">https://github.com/ga1989/AngularPresentation-NEANmeetup </a></h2>
+					<p>( Download as Express/Angular App )</p>
+
+
+					
+				</section>
+
+				<section>
+					<h2>About me</h2>
+					<p>I develop travel software for "PI" in Sunny singapore! </p>
+					<p>I am organizer of  <a href="http://www.meetup.com/NEAN-Singapore-Meetup/"><img src="img/logo.png" title="NEAN" style="border:0; background-color: transparent; box-shadow: none; vertical-align: middle" height="70" /></a></p>
+				</section>
+				
+				<section>
+					<h2>"MEAN is the New Cool"</h2>
+					<p align="center">Javascript based development Stack </p>
+					<p>Hack tip : Visit <a href="http://mean.io/">MEAN.IO</a></p>
+					</br>
+					<ul>
+						<li class="fragment">M - MongoDB</li>
+						<li class="fragment">E - ExpressJS </li>
+						<li class="fragment">A - AngularJS </li>
+						<li class="fragment">N - NodeJS </li>
+					</ul>
+					
+				</section>
+				<section>
+				<h2>Lets Setup quickly</h2>
+				<p class="center">You are require to Install Node (<a href="http://shapeshed.com/compiling-nodejs-from-source-on-ubuntu-10-04/">Click here</a>)  and Mongo (<a href="http://blog.gautamanand.in/install-mongodb-using-cmd/">Click here</a>)</p>
+<li align="center">Standard way</li>
+<pre class="fragment"><code>
+ $ sudo npm install -g meanio 
+  $ mean init yourNewApp
+					</code></pre>
+					<li align="center">Old School</li>
+<pre class="fragment"><code>
+ $ npm install -g express
+ $ express App_name
+ $ npm install -g bower
+ $ cd App_name\public
+ $ bower install
+					</code></pre>
+				
+</section>
+
+		<section>
+				<h2>Packge.json</h2>
+				<h6>Node Package manager</h6>
+<pre class="fragment"><code>
+{
+  "name"         : "NEANDemo",
+  "main"         : "server.js",
+  "dependencies" : {
+    "express"    : "~3.4.4",
+    "mongoose"   : "~3.6.2",
+    "nodemon " : "latest"
+  }
+}
+
+ 
+					</code></pre>
+					<li align="center">Install via npm</li>
+<pre class="fragment"><code>
+ $ cd App_name
+ $ npm install
+					</code></pre>
+				
+</section>
+	<section>
+				<h2>bower.json</h2>
+				<h6>Frontend Package manager</h6>
+<pre class="fragment"><code>
+{
+    "name": "NEANdemo",
+    "version": "0.0.1",
+    "dependencies": {
+        "angular": "latest",
+        "angular-resource": "latest",
+        "angular-cookies": "latest",
+        "angular-mocks": "latest",
+        "angular-route": "latest",
+        "bootstrap": "3.0.3",
+        "angular-bootstrap": "0.10.0",
+        "angular-ui-router": "#master",
+        "angular-bootstrap" : "latest",
+        "handlebars" : "latest"
+    }
+}
+
+ 
+					</code></pre>
+					<li align="center">Install via bower</li>
+<pre class="fragment"><code>
+ $ cd App_name
+ $ bower install
+					</code></pre>
+				
+</section>
+
+				<section>
+					<h2>Mongo DB</h2>
+					</br> 
+					<p align="center">NoSQL database Server <a href="http://blog.gautamanand.in/nosql-movement/">(more here)</a>: Default port is 27017</p>
+					<li class="fragment">Using Mongo native Client</li>
+						<pre class="fragment"><code>
+$ mongod --config path --journal
+					</code></pre>
+						<li class="fragment">Using Mongoose.js </li>
+						<pre class="fragment"><code>
+//In your app.js or Server.js or watever
+var mongoose = require('mongoose');
+mongoose.connect(mongodb://localhost/databasename);
+</code></pre>
+					
+</section>
+<section>
+<p align="center">Using RoboMongo</p>
+					<img src="img/robomongo.png" class="fragment">
+					<li class="fragment">Collections()</li>
+					<li class="fragment">Functions()</li>
+					<li class="fragment">users()</li>
+</section>
+
+				<section>
+					<h2>Connect-Mongo</h2>
+					<h6>Mongo Session store that doesn't suck</h6>
+						<pre class="fragment"><code>
+$ npm install connect-mongo
+</code></pre>
+		<pre class="fragment"><code>
+//In your app.js or server.js
+
+var session = require('express-session');
+var MongoStore   = require("connect-mongo")(session); 
+
+app.use(session({
+  key: 'express.sid',	
+  store: new MongoStore({
+    url: 'mongodb://localhost/SessionStore'
+  }),
+  secret: 'mysessionisNEAN',
+  cookie: { path: '/', httpOnly: true, secure: false, maxAge: 60000 }
+}));
+
+
+</code></pre>
+				
+				</section>
+			
+				
+				
+
+<section>
+<h2>Zen</h2>
+<div align="center">			
+<img src="img/Zen.jpg" class="img-responsive" >
+</div>
+<li class="fragment">What we have discussed ?</li>
+<li class="fragment">Setup and get started + Package managers + Mongo for Userdata + Session-Mongo</li>
+</section>
+
+
+<section>
+<h2>"Minset"</h2>
+<h6>before developing any applications</h6>
+	<img src="img/mean.jpg" class="img-responsive">
+<h4 class="fragment">REST API - Passes JSON Objects to routes</h4>
+<h4 class="fragment">Mongo DB - Stores JSON Objects as it is.</h4>
+<h4 class="fragment">AngularJS - Frontend MVC that calls REST API on specific routes and views.</h4>
+
+
+
+
+
+</section>
+
+<section>
+<h2>Express</h2>
+<h6>Backend framework for Node.Js</h6>
+
+<h4 class="fragment">Whats Included ?</h4>
+<li class="fragment">Routing</li>
+<li class="fragment">Template Engines - Jade/Ejs</li>
+<li class="fragment">SSl</li>
+<li class="fragment">Authentication</li>
+<li class="fragment">Sessions</li>
+<li class="fragment">Error handling</li>
+<li class="fragment">(<a href="http://expressjs.com/guide.html#intro">More here</a>)</li>
+
+
+</section>
+
+	<section>
+					<h2>app.js or server.js</h2>
+
+					<li class="fragment">Define variables</li>
+					<pre class="fragment"><code>
+var express  = require('express');
+var app      = express(); 
+var mongoose = require('mongoose'); 
+var port  	 = process.env.PORT || 8080; 
+var database = require('./config/database'); 
+</code></pre>
+					<li class="fragment">Define Route Path and connect to DB</li>
+
+			
+		<pre class="fragment"><code>
+mongoose.connect(database.url); 
+require('./app/routes.js')(app);
+</code></pre>
+
+<li class="fragment">Port to forward</li>
+
+			
+		<pre class="fragment"><code>
+app.listen(port);
+console.log("App listening on port " + port);
+</code></pre>
+				
+				</section>
+
+					<section>
+					<h2>Routes.js</h2>
+
+					<li class="fragment">Call User Model</li>
+			
+		<pre class="fragment"><code>
+$ cd app\routes.js
+var Todo = require('./models/todo');
+</code></pre>
+
+<li class="fragment">Define GET PUT POST DELETE</li>
+			
+		<pre class="fragment"><code>
+			app.get('/api/todos', function(req, res) {
+			//Function is here  });
+
+			app.put('/api/todos', function(req, res) {
+			//Function is here  });
+
+			app.post('/api/todos', function(req, res) {
+			//Function is here  });
+
+			app.del ('/api/todos', function(req, res) {
+			//Function is here  });
+</code></pre>
+				
+				</section>
+
+					<section>
+					<h2>User Schema</h2>
+				
+					<p class="fragment">SchemaTypes</p>
+					<li class="fragment">String</li>
+					<li class="fragment">Number</li>
+					<li class="fragment">Date</li>
+					<li class="fragment">Buffer</li>
+					<li class="fragment">Boolean</li>
+					<li class="fragment">Mixed</li>
+					<li class="fragment">ObjectId</li>
+					<li class="fragment">Array</li>
+
+
+			
+		<pre class="fragment"><code>
+module.exports = mongoose.model('Todo', {
+	text : String,
+	done : Boolean
+});
+</code></pre>
+				
+				</section>
+
+
+
+
+				
+
+						<section>
+					<h2>JS functions in Routes and UserModel</h2>
+					<h6>Mongoose.JS - Data Object Modelling (<a href="http://mongoosejs.com/docs/guide.html">More here</a>)</h6>					
+			
+		<pre class="fragment"><code>
+Todo.find(function(err, todos){
+if (err)
+res.send(err)
+res.json(todos); 
+}); 
+</code></pre>
+	<pre class="fragment"><code>
+Todo.create({
+text : req.body.text,
+done : false
+}, function(err, todo) {
+if (err)
+res.send(err);
+Todo.find(function(err, todos) {
+if (err)
+res.send(err)
+res.json(todos);
+});});
+
+
+</code></pre>
+				
+				</section>
+
+
+						<section>
+					<h2>Node.JS</h2>
+					<h6>Javascript Server framework build for writing web apps based on Google V8 Engine</h6>	
+
+					<p class="fragment">Provides Core server Functionality</p>
+					<p class="fragment">Async Programming Model</p>
+					<p class="fragment">Single thread Model</p>
+					<p class="fragment">Tons of Libraries</p>
+
+			
+		<pre class="fragment"><code>
+		$ node
+		$ 1+1
+		$ 2 			
+		</code></pre>
+				
+				</section>
+
+
+
+<section>
+<h2>Zen</h2>
+<div align="center">			
+<img src="img/Zen.jpg" class="img-responsive" >
+</div>
+<li class="fragment">What we have discussed ?</li>
+<li class="fragment">Intro to Express, app.js, routes.js, user.js, Mongoose and finally Node.JS</li>
+</section>
+
+	<section>
+					<h2>AngularJS</h2>
+					<ul>
+						<li class="fragment">Client-side framework MVC</li>
+						<li class="fragment">for building Single Page Applications</li>
+						<li class="fragment">Open Source (The MIT License)</li>
+						<li class="fragment">by Google</li>
+					</ul>
+				</section>
+
+
+				<section>
+					<h2>Angular in App</h2>
+
+					<p align="center">Define Angular Module</p>
+
+					<pre><code>
+//In Public/core.js
+var NEAN = angular.module('NEAN', []);
+					</code></pre>
+
+					<p align="center"> Define mainController - Handle GET POST PUT DELETE</p>
+					
+					<pre><code>
+function mainController($scope, $http) {
+$scope.formData = {};
+$http.get('/api/todos').success(function(data) {
+$scope.todos = data;}).error(function(data) {
+console.log('Error: ' + data);});}
+</code></pre>
+
+<p align="center"> Define how to handle in app/routes.js</p>
+					
+					<pre><code>
+app.get('*', function(req, res) {
+res.sendfile('./public/index.html');});
+</code></pre>
+				
+				</section>
+
+					<section>
+					<h2>Angular in ejs/html</h2>
+
+					<p align="center">Add ng-app</p>
+
+					<pre><code>
+<!--<html ng-app="NEAN">-->
+					</code></pre>
+
+<p align="center">Add ng-controller</p>
+
+					<pre><code>
+<!-- <body ng-controller="mainController"> -->
+					</code></pre>
+
+<p align="center">Options on specific DOM behaviour - call function from maincontroller and pass the value</p>
+
+					<pre><code>
+<input type="checkbox" ng-click="deleteTodo(todo._id)">
+ <!--{{ todo.text }}-->
+					</code></pre>
+
+
+
+				
+				</section>
+
+				<section >
+			
+					<h2 >Angular</h2>
+						<ul>
+						<li>Data Binding - Connect to REST API</li>
+						<li>Dependency Injection {'{dataishere}'} </li>
+						<li>Directives - Markers that change DOM behaviour</li>
+						<li>Model Driven Views - Model changes and so as the DOM behaviour</li>
+						<li>Object.observe - listen to changes on objects and their properties</li>
+					
+					</ul>
+
+			
+				</section>
+
+				<section>
+					<h1>Live App</h1>
+					 <h5>(only today) </h5>
+
+					 <h2><a href="http://goo.gl/7Zpkxu">http://goo.gl/7Zpkxu</a></h2>
+
+					<h2>Download from github <a href="https://github.com/ga1989/MEAN-NEANmeetup-SPA">Here</a></h2>
+				</section>
+
+
+			
+
+				<section>
+					<h1>THE END</h1>
+					<h2>Questions?</h2>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
